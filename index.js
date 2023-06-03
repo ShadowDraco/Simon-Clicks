@@ -19,10 +19,21 @@ server.on("connection", (socket) => {
     console.log(event, timestamp, payload);
   });
 
+  // update my player 2
+  socket.on("UPDATE MY PLAYER 2", (payload) => {
+    socket.broadcast.emit("UPDATE MY PLAYER 2", payload);
+  });
+
+  // send HERES YOUR UPDATE BACK TO OTHER PLAYER
+  socket.on("HERES YOUR UPDATE", (payload) => {
+    socket.broadcast.emit("UPDATE PLAYER 2", payload)
+  });
+
   // relay player movement
   socket.on("PLAYER MOVE", (payload) => {
     socket.broadcast.emit("UPDATE PLAYER 2", payload);
   });
+  //When oponent asks for update
 });
 
 console.log("listening on PORT:", PORT);

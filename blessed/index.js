@@ -7,8 +7,23 @@ socket.on("UPDATE PLAYER 2", (payload) => {
   movePlayer2(payload);
 });
 
+socket.on("UPDATE MY PLAYER 2", (payload) => {
+  socket.emit("HERES YOUR UPDATE", { top: player1.top, left: player1.left });
+});
+
+// receive the update
+socket.on("HERES YOUR UPDATE", (payload) => {
+  movePlayer2({ top: position.top, left: position.left });
+});
+
+
+// update other player
 const emitPlayerMove = (position) => {
-  socket.emit("PLAYER MOVE", position);
+  socket.emit("PLAYER MOVE", { top: position.top, left: position.left });
+};
+// update my player 2
+const emitOponentMove = () => {
+  socket.emit("UPDATE MY PLAYER 2", {});
 };
 
 //* Player functions */
@@ -87,4 +102,7 @@ screen.key(["escape", "q", "C-c"], function () {
 });
 
 // On start update positions because they are random!
+// tell other player MY position
 emitPlayerMove({ top: player1.top, left: player1.left });
+// Ask other player to give me theirs
+emitOponentMove();
