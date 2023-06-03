@@ -1,5 +1,5 @@
 const { io } = require("socket.io-client");
-const socket = io(`http://localhost:${3001}`);
+const socket = io("https://simon-clicks.onrender.com:10000");
 
 //* Socket functions */
 
