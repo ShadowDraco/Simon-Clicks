@@ -1,3 +1,6 @@
+"use strict";
+
+//? Pass screen to render, box to move, and direction
 function movePlayer(screen, box, direction) {
   switch (direction) {
     case "up":
@@ -14,6 +17,5 @@ function movePlayer(screen, box, direction) {
       break;
   }
   screen.render();
-  // socket.emit('PLAYER MOVE', { my position })
 }
 module.exports = movePlayer;
