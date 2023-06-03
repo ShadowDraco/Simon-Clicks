@@ -4,7 +4,7 @@
 	"description": "using real time socket server create an interactive Simon says game in the terminal",
 	"main": "index.js",
 	"scripts": {
-		"start": "node hub.js",
+		"start": "node index.js",
 		"test": "jest --verbose --coverage",
 		"test-watch": "jest --watchAll --verbose --coverage"
 	},
