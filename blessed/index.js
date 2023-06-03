@@ -16,6 +16,10 @@ socket.on("HERES YOUR UPDATE", (payload) => {
   movePlayer2({ top: position.top, left: position.left });
 });
 
+socket.on("MOVE FROM BROWSER", (payload) => {
+  //? Move player 1 in the direction name
+  movePlayer(screen, player2, payload);
+});
 
 // update other player
 const emitPlayerMove = (position) => {
