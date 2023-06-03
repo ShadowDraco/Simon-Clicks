@@ -7,26 +7,19 @@ const PORT = process.env.PORT || 3001;
 // socket server singleton
 const server = new Server();
 
-// create a namespace
-
-// create / allow for connections to the caps namespace
+// create / allow for connections to the server
 server.on("connection", (socket) => {
   // confirmation that a client is connected
   console.log("connected to the game namespace", socket.id);
 
-  socket.on("join", (room) => {
-    socket.join(room);
-    console.log(`${socket.id} joined the ${room} room`);
-  });
-
   // any event emitted is read by onAny
   socket.onAny((event, payload) => {
-    let timestamp = new Date();
+    let timestamp = new Date().getMilliseconds();
     // will log everything as required by lab
-    console.log("EVENT", event, timestamp, payload);
+    console.log(event, timestamp, payload);
   });
 
-  // listens for and relays pickup event
+  // relay player movement
   socket.on("PLAYER MOVE", (payload) => {
     socket.broadcast.emit("UPDATE PLAYER 2", payload);
   });
