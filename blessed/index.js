@@ -17,8 +17,8 @@ socket.on("HERES YOUR UPDATE", (payload) => {
 });
 
 socket.on("MOVE FROM BROWSER", (payload) => {
-  //? Move player 1 in the direction name
-  movePlayer(screen, player2, payload);
+  //? Move player 2 in the direction name from browser
+  movePlayer(screen, player2, payload.direction);
 });
 
 // update other player

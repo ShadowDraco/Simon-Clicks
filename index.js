@@ -31,7 +31,9 @@ io.on("connection", (socket) => {
     console.log(event, timestamp, payload);
   });
 
+  // when browser player 1
   socket.on("MOVE FROM BROWSER", (payload) => {
+    // update socket terminal that player moved
     socket.broadcast.emit("MOVE FROM BROWSER", payload);
   });
 
