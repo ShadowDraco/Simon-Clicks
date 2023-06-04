@@ -1,12 +1,8 @@
 const { io } = require("socket.io-client");
-<<<<<<< Updated upstream
-const socket = io(`http://localhost:3001`);
-=======
 // ? Play from the terminal instead???
 //const socket = io("https://simon-clicks.onrender.com");
 //* Play from local host */
 const socket = io("http://localhost:3001");
->>>>>>> Stashed changes
 
 //* Socket functions */
 
