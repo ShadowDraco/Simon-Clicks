@@ -14,6 +14,7 @@ socket.on("UPDATE MY PLAYER 2", (payload) => {
   socket.emit("HERES YOUR UPDATE", { top: player1.top, left: player1.left });
 });
 
+
 // receive the update
 socket.on("HERES YOUR UPDATE", (payload) => {
   movePlayer2({ top: position.top, left: position.left });
