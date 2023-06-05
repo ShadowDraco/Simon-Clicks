@@ -6,7 +6,7 @@
 
 ## Features
 
-- Real-time multiplayer gameplay
+- Real-time multiplayer gameplay with updates
 - Interactive gameplay with Simon generating a pattern of clicks
 - Player turns with a turn queue to maintain order
 - Broadcasting updates to all players
@@ -14,7 +14,7 @@
 
 ## Technologies Used
 
-Node.js, Socket.io, JavaScript
+Node.js, Socket.io, JavaScript, Express, Jest, ESLint, Dotenv, Chance, Blessed
 
 ### Setup
 
@@ -22,7 +22,7 @@ Node.js, Socket.io, JavaScript
 
 1. Clone this repo into your local environment
 2. `npm init -y`
-3. `npm i cors express jest supertest sequelize sequelize-cli sqlite3 pg base-64 bcrypt eslint dotenv jsonwebtoken`
+3. `npm i cors express jest eslint dotenv chance socket.io socket.io-client blessed`
 
 #### `.env` requirements (where applicable)
 
@@ -31,7 +31,9 @@ Node.js, Socket.io, JavaScript
 
 #### How to run this application
 
-- `npm start` or `nodemon`
+- Player enters `node .` from the root level terminal
+- Navigate into the ./blessed and enter `node .` from a second terminal
+- Open a web browser at http://localhost:3001 then move with the arrow keys
 
 ## Gameplay Instructions
 
@@ -47,7 +49,10 @@ Ethan Storm, Ryan Eastman, Coriana Williams
 
 ### Links and Resources
 
--[Github Actions]() -[Whiteboard]()
+-[Github Actions](https://github.com/ShadowDraco/Simon-Clicks/actions)
 
-- [](https://marmelab.com/blog/2021/11/17/user-mouse-cli-blessed.html)
-- [](https://github.com/chjj/blessed)
+-![Whiteboard](/public/img/lab14Whiteboard.png)
+
+- [BlessedScreen](https://marmelab.com/blog/2021/11/17/user-mouse-cli-blessed.html)
+
+- [BlessedScreenRepo](https://github.com/chjj/blessed)
