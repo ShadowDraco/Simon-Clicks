@@ -33,7 +33,7 @@ Node.js, Socket.io, JavaScript, Express, Jest, ESLint, Dotenv, Chance, Blessed
 
 - Player enters `node .` from the root level terminal
 - Navigate into the ./blessed and enter `node .` from a second terminal
-- Open a web browser at http://localhost:3001 then move with the arrow keys
+- Open a web browser at [LocalHost:3001](http://localhost:3001) then move with the arrow keys
 
 ## Gameplay Instructions
 
