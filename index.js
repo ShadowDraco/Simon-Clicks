@@ -24,6 +24,15 @@ io.on("connection", (socket) => {
   // confirmation that a client is connected
   console.log("connected to the game namespace", socket.id);
 
+  socket.on("chat message", (message) => {
+    socket.broadcast.emit("chat message", message);
+  });
+
+  // notification for player disconnect
+  socket.on('disconnect', () => {
+    console.log('user disconnected');
+  });
+
   // any event emitted is read by onAny
   socket.onAny((event, payload) => {
     let timestamp = new Date().getMilliseconds();

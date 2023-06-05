@@ -1,3 +1,6 @@
+// create a socket connection when the browser loads
+const socket = io();
+
 //? Do functions with the web socket connection provided by the browser to the server
 // * Its just like when we connect to the socket server from the terminal.
 //* But this time We are updating the html instead of the blessed Boxes!! */
@@ -14,8 +17,7 @@ const player1 = document.getElementById("player1");
 player1.style.top = `${position.top}%`;
 player1.style.left = `${position.left}%`;
 const player2 = document.getElementById("player2");
-// create a socket connection when the browser loads
-const socket = io();
+
 
 // Listen for all focus events in the document
 document.addEventListener(
@@ -48,6 +50,37 @@ document.addEventListener(
   true
 );
 
+// listen for the form submision event
+  const input = document.getElementById("input");
+  const messages = document.getElementById('messages');
+  const form = document.getElementById("form");
+
+  form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+
+      const message = input.value.trim();
+
+      if (message) {
+        //emit chat message to server
+        socket.emit("chat message", message);
+
+        const item = document.createElement('li');
+        item.textContent = message;
+        messages.appendChild(item);
+        window.scrollTo(0, document.body.scrollHeight);
+
+        input.value = "";
+      }
+    });
+
+  socket.on('chat message', function(message) {
+      const item = document.createElement('li');
+      item.textContent = message;
+      messages.appendChild(item);
+      window.scrollTo(0, document.body.scrollHeight);
+  });
+
 socket.onAny((event, payload) => {
   console.log(event, payload);
 });
@@ -63,3 +96,5 @@ socket.on("MOVE FROM BROWSER", (payload) => {
   player2.style.top = payload.position.top + "%"; // don't multiply because its already in browser support
   player2.style.left = payload.position.left + "%";
 });
+
+

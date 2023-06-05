@@ -8,7 +8,9 @@
         padding-bottom: 3rem;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
           Helvetica, Arial, sans-serif;
+          background-color:wheat;
       }
+
 
       #form {
         background: rgba(0, 0, 0, 0.15);
@@ -46,26 +48,23 @@
         list-style-type: none;
         margin: 0;
         padding: 0;
+        height: 60vh;
+        width:25vw;
+        overflow-y: scroll;
+        border: black 2px groove;
       }
       #messages > li {
         padding: 0.5rem 1rem;
       }
       #messages > li:nth-child(odd) {
-        background: #efefef;
+        background: #808080;
       }
     </style>
   </head>
   <body>
     <h1>Move the player with arrow keys!</h1>
-    <div
-      style="
-        border: black 2px groove;
-        width: 48vh;
-        height: 28vh;
-        position: absolute;
-        left: 10px;
-      "
-    ></div>
+
+    <ul id="messages"></ul>
 
     <div
       id="player1"
@@ -79,6 +78,11 @@
     >
       Player 2
     </div>
+
+
+    <form id="form" action="">
+      <input id="input" autocomplete="off" /><button type="submit">Send</button>
+    </form>
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="WSFunctions.js" type="module"></script>
