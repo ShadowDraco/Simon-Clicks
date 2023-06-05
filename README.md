@@ -2,6 +2,8 @@
 
 - using real time socket server create a two player experience with live chat and 2d movement.
 
+## [Try it here!](https://simon-clicks.onrender.com)
+
 ## Features
 
 - Real-time multiplayer gameplay with updates
